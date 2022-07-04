@@ -22,7 +22,12 @@ public class MoodAnalyzerTest {
     @Test
     public void givenNullMood_ShouldReturnHappy() {
         MoodAnalyzer moodAnalyzer = new MoodAnalyzer(null);
-        String mood = moodAnalyzer.analyzeMood();
+        String mood = null;
+        try {
+            mood = moodAnalyzer.analyzeMood();
+        } catch (MoodAnalyzerException e) {
+            e.printStackTrace();
+        }
         Assert.assertEquals("HAPPY", mood);
     }
 }
